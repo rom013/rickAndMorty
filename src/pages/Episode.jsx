@@ -6,7 +6,7 @@ function Episode() {
     const [page, setPage] = useState("https://rickandmortyapi.com/api/episode")
 
     useEffect(() => {
-        document.body.classList.remove("bg-background-house")
+        document.body.classList.remove("bg-background-galaxy", "bg-citadelofRicks", "bg-background-house")
         document.body.classList.add("bg-background-galaxy")
 
 
