@@ -6,17 +6,42 @@ import { CaretDoubleLeft, CaretLeft, CaretRight, CaretDoubleRight } from "@phosp
 export default function App() {
     const [page, setPages] = useState(1)
 	const [control, setControl] = useState()
-	const [prev, setPreve] = useState(false)
+	const [prev, setPrev] = useState(false)
 	const [next, setNext] = useState(true)
+	const [cards, setCards] = useState([])
+	
+	
+	useEffect(() => {
+		document.body.classList.remove("bg-background-galaxy", "bg-citadelofRicks", "bg-background-house")
+		document.body.classList.add("bg-background-house")
 
-	document.body.classList.add("bg-background-house")
-
-	return (
-		<main className="">
+        fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
+            .then((e) => e.json())
+            .then((e) => {
+                setCards(e.results); 
+                setControl(e.info)
+                if(e.info.prev != null){
+                    setPrev(true)
+                }
+                else setPrev(false)
+                if(e.info.next != null){
+                    setNext(true)
+                }
+                else setNext(false)
+            })
+		}, [page])
+		
+		return (
+			<main className="">
 			<Header />
 
 			<section className="mx-auto max-w-5xl bg-white mt-20 p-8 flex flex-wrap justify-between gap-y-10 gap-x-3">
-				<Card page={page} info={setControl} prev={setPreve} next={setNext}/>
+				{
+					cards.map((card, key) => {
+						return <Card info={card} key={key}/>
+					})
+				}
+				
 			</section>
 
 			<div className="w-full flex justify-center my-8 px-4 py-2 bg-white gap-3">

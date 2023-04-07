@@ -7,7 +7,8 @@ export default {
     extend: {
       backgroundImage:{
         "background-house": `url(../houseRickAndMorty.webp)`,
-        "background-galaxy": `url(../rickAndMortyGalaxy.jpg)`
+        "background-galaxy": `url(../rickAndMortyGalaxy.jpg)`,
+        "citadelofRicks": `url(../CitadelofRicks.webp)`
       }
     },
   },

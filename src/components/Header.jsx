@@ -18,7 +18,7 @@ export default function Header(){
                         <a href="#">Locais</a>
                     </li>
                     <li>
-                        <a href="#">Cidadela dos ricks</a>
+                        <a onClick={()=>{navigate("/citadelofRicks")}} className="cursor-pointer">Cidadela dos ricks</a>
                     </li>
                     <li>
                         <a href="#" className="border-2 border-lime-400 rounded-md py-2 px-6 font-bold hover:bg-lime-300/30">Login</a>
