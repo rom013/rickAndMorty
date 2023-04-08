@@ -21,6 +21,9 @@ export default function Header(){
                         <a onClick={()=>{navigate("/citadelofRicks")}} className="cursor-pointer">Cidadela dos ricks</a>
                     </li>
                     <li>
+                        <a onClick={()=>{navigate("/about")}} className="cursor-pointer">Sobre a série</a>
+                    </li>
+                    <li>
                         <a href="#" className="border-2 border-lime-400 rounded-md py-2 px-6 font-bold hover:bg-lime-300/30">Login</a>
                     </li>
                 </ul>

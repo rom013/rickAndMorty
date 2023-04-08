@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Heart, Skull, X } from "@phosphor-icons/react";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Card({ info, key }) {
+    const navigate = useNavigate()
+
     return (
         <>
             <Dialog.Root>
@@ -64,7 +67,7 @@ export default function Card({ info, key }) {
                                                 }
                                             </span>
                                             {
-                                                info.episode.toString().split(",").length > 1 && <a href="#" className="underline text-lime-700">ver mais</a>
+                                                info.episode.toString().split(",").length > 1 && <a onClick={()=> navigate(`/episode?character=${info.id}`)} className="underline text-lime-700 cursor-pointer">ver mais</a>
                                             }
                                         </div>
                                     </div>
